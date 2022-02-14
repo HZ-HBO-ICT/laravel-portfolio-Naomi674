@@ -45,4 +45,3 @@ Route::get('/blog', [BlogController::class, 'show']);
 Route::get('/dashboard', [DashboardController::class, 'show']);
 Route::get('/faq', [FaqController::class, 'show']);
 Route::get('/profile', [ProfileController::class, 'show']);
-
