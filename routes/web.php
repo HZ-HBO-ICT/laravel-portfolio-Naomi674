@@ -39,9 +39,10 @@ use Illuminate\Support\Facades\Route;
     //return view('welcome');
  //});
 
-Route::get('/posts/{slug}', [PostsController::class, 'show']);
+Route::get('/posts/{id}', [PostsController::class, 'show']);
 Route::get('/', [WelcomeController::class, 'show']);
 Route::get('/blog', [BlogController::class, 'show']);
+Route::get('/blog', [BlogController::class, 'index']);
 Route::get('/dashboard', [DashboardController::class, 'show']);
 Route::get('/faq', [FaqController::class, 'show']);
 Route::get('/profile', [ProfileController::class, 'show']);

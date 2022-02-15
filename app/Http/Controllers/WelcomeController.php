@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Posts;
+
 class WelcomeController
 {
     /**
@@ -9,6 +11,10 @@ class WelcomeController
      */
     public function show()
     {
-        return view('welcome');
+        $posts = Posts::latest()->take(3)->get();
+
+        return view('welcome', [
+            'posts' => $posts
+        ]);
     }
 }

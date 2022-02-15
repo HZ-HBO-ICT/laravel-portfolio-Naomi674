@@ -15,17 +15,12 @@
     </div>
     <div class="content-small">
         <div class="list">
-            <h3>Additional Characteristics About Me...</h3>
+            @foreach($posts as $post)
+            <h3><a class="link" href="/posts/{{$post->id}}" target="_blank"> {{$post->title}} </a></h3>
             <ul>
-                <li>I am very coachable, I have even won multiple awards for my coachabilty</li>
-                <li>I am very good at planning out my time</li>
-                <li>I am super competitive</li>
+                <li>{{$post->excerpt}}</li>
             </ul>
-            <h3>Social Media</h3>
-            <ul>
-                <li>Instgram : <a class="link" href="https://www.instagram.com/naomi674/" target="_blank">@naomi674</a></li>
-                <li>Snapchat : <a class="link" href="https://accounts.snapchat.com/accounts/snapcodes" target="_blank">@naomi674</a></li>
-            </ul>
+            @endforeach
         </div>
         <img src="img/sanddune.JPG" alt="Me on top of a sand dune" style="width:300px;height:200px; margin-top: 25px;">
     </div>

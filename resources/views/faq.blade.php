@@ -7,8 +7,6 @@
             <article class="browser">
                 @foreach($faq as $faqs)
                 <h2>{{$faqs->question}}</h2>
-                @endforeach
-                @foreach($faq as $faqs)
                     <p>{{ $faqs->answer }}</p>
                 @endforeach
             </article>

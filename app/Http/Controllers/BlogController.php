@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Posts;
+
 class BlogController
 {
     /**
@@ -9,6 +11,19 @@ class BlogController
      */
     public function show()
     {
-        return view('blog');
+        $posts = Posts::all();
+
+        return view('blog', [
+            'posts' => $posts
+        ]);
+    }
+
+    public function index()
+    {
+        $posts = Posts::all();
+
+        return view('blog', [
+            'posts' => $posts
+        ]);
     }
 }

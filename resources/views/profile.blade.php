@@ -21,7 +21,6 @@
         </div>
     </div>
     <div class="footer">
-        <img src="img/hz-logo.png" alt="HZ logo" style="width:275px;height:80px;float:center;">
     </div>
 @endsection
 

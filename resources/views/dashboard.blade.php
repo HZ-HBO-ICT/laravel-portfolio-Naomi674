@@ -46,7 +46,7 @@
             </tr>
             <tr>
                 <td rowspan="4">3</td>
-                <td>Framework Developement 1</td>
+                <td>Framework Development 1</td>
                 <td>5</td>
                 <td>Case Study</td>
                 <td></td>
@@ -69,7 +69,7 @@
             </tr>
             <tr>
                 <td rowspan="3">4</td>
-                <td rowspan="3">Framwork Project 2</td>
+                <td rowspan="3">Framework Project 2</td>
                 <td rowspan="3">10</td>
                 <td>Portfolio</td>
                 <td></td>
