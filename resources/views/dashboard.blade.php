@@ -18,31 +18,31 @@
                 <td>Program and Career Orientation</td>
                 <td>2,5</td>
                 <td>Assessment</td>
-                <td></td>
+                <td>{{$grades[0]->best_grade}}</td>
             </tr>
             <tr>
                 <td>Computer Science Basics</td>
                 <td>5</td>
                 <td>Written Exam</td>
-                <td></td>
+                <td>{{$grades[1]->best_grade}}</td>
             </tr>
             <tr>
                 <td>Programming Basics</td>
                 <td>5</td>
                 <td>Case Study</td>
-                <td></td>
+                <td>{{$grades[2]->best_grade}}</td>
             </tr>
             <tr>
                 <td rowspan="2">2</td>
                 <td rowspan="2">Object Oriented Programming</td>
                 <td rowspan="2">10</td>
                 <td>Case Study</td>
-                <td></td>
+                <td>{{$grades[3]->best_grade}}</td>
             </tr>
             <tr>
 
                 <td>Project</td>
-                <td></td>
+                <td>{{$grades[4]->best_grade}}</td>
             </tr>
             <tr>
                 <td rowspan="4">3</td>

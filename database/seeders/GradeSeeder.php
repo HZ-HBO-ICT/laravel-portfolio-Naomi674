@@ -27,6 +27,12 @@ class GradeSeeder extends Seeder
         ]);
 
         DB::table('grades')->insert([
+            'course_name' => 'Programming Basics',
+            'test_name' => 'Case Study',
+            'best_grade' => 9.00
+        ]);
+
+        DB::table('grades')->insert([
             'course_name' => 'Object Oriented Programming',
             'test_name' => 'Case Study',
             'best_grade' => 7.00
