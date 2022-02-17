@@ -46,18 +46,31 @@ class BlogController
         return redirect('/blog');
     }
 
-    public function edit()
+    public function edit($id)
     {
-        //
+        $post = Posts::find($id);
+
+        return view('blog.edit', compact('post'));
     }
 
-    public function update()
+    public function update($id)
     {
-        //
+        $post = Posts::find($id);
+
+        $post->title = request('title');
+        $post->excerpt = request('excerpt');
+        $post->body = request('body');
+
+        $post->save();
+
+        return redirect('/blog/' .$post->id);
     }
 
-    public function destroy(Posts $posts)
+    public function destroy($id)
     {
-        //
+        $post = Posts::find($id);
+        $post->delete();
+        return redirect('/blog');
+
     }
 }

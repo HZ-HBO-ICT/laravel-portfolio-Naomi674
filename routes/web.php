@@ -48,6 +48,8 @@ Route::get('/blog/{id}/edit', [BlogController::class, 'edit']);
 Route::put('/blog/{id}', [BlogController::class, 'update']);
 Route::delete('/blog/{id}', [BlogController::class, 'destroy']);
 
+//Route::resource('/blog', BlogController::class);
+
 
 
 Route::get('/', [WelcomeController::class, 'show']);
