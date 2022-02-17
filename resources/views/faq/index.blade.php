@@ -12,7 +12,8 @@
             </article>
         </article>
     </div>
-    <div class="content-small"></div>
+    <div class="content-small">
+    </div>
     <div class="content-small"></div>
     <div class="footer">
     </div>

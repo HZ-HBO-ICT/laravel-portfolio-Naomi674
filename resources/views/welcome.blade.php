@@ -1,5 +1,4 @@
 @extends ('layout')
-
     @section('content')
     <div class="header"></div>
     <div class="content-large">
@@ -15,15 +14,14 @@
     </div>
     <div class="content-small">
         <div class="list">
+            <h1>Latest Posts</h1>
             @foreach($posts as $post)
-            <h3><a class="link" href="/posts/{{$post->id}}" target="_blank"> {{$post->title}} </a></h3>
+            <h3><a class="link" href="/blog/{{$post->id}}" target="_blank"> {{$post->title}} </a></h3>
             <ul>
                 <li>{{$post->excerpt}}</li>
             </ul>
             @endforeach
         </div>
         <img src="img/sanddune.JPG" alt="Me on top of a sand dune" style="width:300px;height:200px; margin-top: 25px;">
-    </div>
-    <div class="footer">
     </div>
     @endsection

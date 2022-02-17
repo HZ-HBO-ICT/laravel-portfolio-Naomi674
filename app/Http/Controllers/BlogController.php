@@ -24,7 +24,7 @@ class BlogController
     public function index()
     {
 
-        $posts = Posts::all();
+        $posts = Posts::latest()->get();
 
         return view('blog.index', compact('posts'));
     }
