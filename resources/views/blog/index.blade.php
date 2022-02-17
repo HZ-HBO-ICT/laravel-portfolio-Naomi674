@@ -7,7 +7,7 @@
             <article class="browser">
                 @foreach($posts as $post)
                 <h2>{{$post->title}}</h2>
-                <p>{{$post->excerpt}} <a class="link" href="/posts/{{$post->id}}" target="_blank"> see full post </a></p>
+                <p>{{$post->excerpt}} <a class="link" href="/blog/{{$post->id}}" target="_blank"> see full post </a></p>
                 @endforeach
             </article>
         </article>
