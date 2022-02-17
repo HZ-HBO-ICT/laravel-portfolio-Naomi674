@@ -24,10 +24,10 @@
 <body>
 <div class="container">
     <div class="header">
-        <h1>{{ $post->title }}</h1>
+        <h1>{{ $posts->title }}</h1>
     </div>
     <div class="content-large">
-        <p>{{ $post->body }}</p>
+        <p>{{ $posts->body }}</p>
     </div>
     <div class="content-small"></div>
     <div class="content-small"></div>

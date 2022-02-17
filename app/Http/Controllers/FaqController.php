@@ -11,7 +11,7 @@ class FaqController
 {
     public function index()
     {
-        return view('faq.index', ['faq'=>Faq::all()]);
+        return view('faq.index', ['faqs'=>Faq::all()]);
     }
 
     /**
@@ -19,7 +19,6 @@ class FaqController
      */
     public function show()
     {
-
     }
 
     public function create()
@@ -29,39 +28,39 @@ class FaqController
 
     public function store()
     {
-        $faq = new Faq();
+        $faqs = new Faq();
 
-        $faq->question = request('question');
-        $faq->answer = request('answer');
+        $faqs->question = request('question');
+        $faqs->answer = request('answer');
 
-        $faq->save();
+        $faqs->save();
 
         return redirect('/faq');
     }
 
     public function edit($id)
     {
-        $faq = Faq::find($id);
+        $faqs = Faq::find($id);
 
-        return view('faq.edit', compact('faq'));
+        return view('faq.edit', compact('faqs'));
     }
 
     public function update($id)
     {
-        $faq = Faq::find($id);
+        $faqs = Faq::find($id);
 
-        $faq->question = request('question');
-        $faq->answer = request('answer');
+        $faqs->question = request('question');
+        $faqs->answer = request('answer');
 
-        $faq->save();
+        $faqs->save();
 
         return redirect('/faq');
     }
 
     public function destroy($id)
     {
-        $faq = Faq::find($id);
-        $faq->delete();
+        $faqs = Faq::find($id);
+        $faqs->delete();
         return redirect('/faq');
     }
 }

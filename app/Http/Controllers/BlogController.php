@@ -14,7 +14,7 @@ class BlogController
     public function show($id)
     {
         return view('blog.show', [
-            'post' => Posts::find($id)
+            'posts' => Posts::find($id)
         ]);
     }
 
@@ -23,9 +23,7 @@ class BlogController
 
         $posts = Posts::all();
 
-        return view('blog.index', [
-            'posts' => $posts
-        ]);
+        return view('blog.index', compact('posts'));
     }
 
     public function create()
@@ -48,28 +46,28 @@ class BlogController
 
     public function edit($id)
     {
-        $post = Posts::find($id);
+        $posts = Posts::find($id);
 
-        return view('blog.edit', compact('post'));
+        return view('blog.edit', compact('posts'));
     }
 
     public function update($id)
     {
-        $post = Posts::find($id);
+        $posts = Posts::find($id);
 
-        $post->title = request('title');
-        $post->excerpt = request('excerpt');
-        $post->body = request('body');
+        $posts->title = request('title');
+        $posts->excerpt = request('excerpt');
+        $posts->body = request('body');
 
-        $post->save();
+        $posts->save();
 
-        return redirect('/blog/' .$post->id);
+        return redirect('/blog/' .$posts->id);
     }
 
     public function destroy($id)
     {
-        $post = Posts::find($id);
-        $post->delete();
+        $posts = Posts::find($id);
+        $posts->delete();
         return redirect('/blog');
 
     }

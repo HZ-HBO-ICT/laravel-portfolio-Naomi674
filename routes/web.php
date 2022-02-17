@@ -40,29 +40,27 @@ use Illuminate\Support\Facades\Route;
  //});
 
 
-Route::get('/blog/create', [BlogController::class, 'create']);
-Route::post('/blog', [BlogController::class, 'store']);
-Route::get('/blog', [BlogController::class, 'index']);
-Route::get('/blog/{id}', [BlogController::class, 'show']);
-Route::get('/blog/{id}/edit', [BlogController::class, 'edit']);
-Route::put('/blog/{id}', [BlogController::class, 'update']);
-Route::delete('/blog/{id}', [BlogController::class, 'destroy']);
+//Route::get('/blog/create', [BlogController::class, 'create']);
+//Route::post('/blog', [BlogController::class, 'store']);
+//Route::get('/blog', [BlogController::class, 'index']);
+//Route::get('/blog/{id}', [BlogController::class, 'show']);
+//Route::get('/blog/{id}/edit', [BlogController::class, 'edit']);
+//Route::put('/blog/{id}', [BlogController::class, 'update']);
+//Route::delete('/blog/{id}', [BlogController::class, 'destroy']);
 
-//Route::resource('/blog', BlogController::class);
-
-
+Route::resource('/blog', BlogController::class);
 
 Route::get('/', [WelcomeController::class, 'show']);
 Route::get('/dashboard', [DashboardController::class, 'show']);
 
-Route::get('/faq/create', [FaqController::class, 'create']);
-Route::post('/faq', [FaqController::class, 'store']);
-Route::get('/faq', [FaqController::class, 'index']);
-Route::get('/faq/{question}', [FaqController::class, 'show']);
-Route::get('/faq/{question}/edit', [FaqController::class, 'edit']);
-Route::put('/faq/{question}', [FaqController::class, 'update']);
-Route::delete('/faq/{question}', [FaqController::class, 'destroy']);
+//Route::get('/faq/create', [FaqController::class, 'create']);
+//Route::post('/faq', [FaqController::class, 'store']);
+//Route::get('/faq', [FaqController::class, 'index']);
+//Route::get('/faq/{question}', [FaqController::class, 'show']);
+//Route::get('/faq/{question}/edit', [FaqController::class, 'edit']);
+//Route::put('/faq/{question}', [FaqController::class, 'update']);
+//Route::delete('/faq/{question}', [FaqController::class, 'destroy']);
 
-
+Route::resource('/faq', FaqController::class);
 
 Route::get('/profile', [ProfileController::class, 'show']);
