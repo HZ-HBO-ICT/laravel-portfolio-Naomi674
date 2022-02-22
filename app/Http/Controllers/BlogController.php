@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StorePostsRequest;
 use App\Http\Requests\UpdatePostsRequest;
 use App\Models\Posts;
+use Symfony\Component\HttpFoundation\Request;
 
 class BlogController
 {
@@ -40,15 +41,9 @@ class BlogController
     /**
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
-    public function store()
+    public function store(Request $request)
     {
-        $posts = new Posts();
-
-        $posts->title = request('title');
-        $posts->excerpt = request('excerpt');
-        $posts->body = request('body');
-
-        $posts->save();
+        Posts::create($this->validatePost($request));
 
         return redirect('/blog');
     }
@@ -59,7 +54,7 @@ class BlogController
      */
     public function edit($id)
     {
-        $posts = Posts::find($id);
+        $posts = Posts::findorfail($id);
 
         return view('blog.edit', compact('posts'));
     }
@@ -68,15 +63,10 @@ class BlogController
      * @param $id
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
-    public function update($id)
+    public function update($id, Request $request)
     {
-        $posts = Posts::find($id);
-
-        $posts->title = request('title');
-        $posts->excerpt = request('excerpt');
-        $posts->body = request('body');
-
-        $posts->save();
+        $posts = Posts::findorfail($id);
+        $posts->update($this->validatePost($request));
 
         return redirect('/blog/' .$posts->id);
     }
@@ -87,8 +77,20 @@ class BlogController
      */
     public function destroy($id)
     {
-        $posts = Posts::find($id);
+        $posts = Posts::findorfail($id);
         $posts->delete();
         return redirect('/blog');
+    }
+
+    /**
+     * @return array
+     */
+    protected function validatePost(Request $request): array
+    {
+        return $request->validate([
+            'title' => 'required',
+            'excerpt' => 'required',
+            'body' => 'required'
+        ]);
     }
 }

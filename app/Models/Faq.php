@@ -9,4 +9,5 @@ class Faq extends Model
 {
     protected $table = 'faq';
     use HasFactory;
+    protected $guarded = [];
 }

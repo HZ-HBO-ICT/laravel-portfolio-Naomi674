@@ -6,6 +6,7 @@ use App\Http\Requests\StorePostsRequest;
 use App\Http\Requests\UpdatePostsRequest;
 use App\Models\Faq;
 use App\Models\Posts;
+use Symfony\Component\HttpFoundation\Request;
 
 class FaqController
 {
@@ -32,14 +33,9 @@ class FaqController
     /**
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
-    public function store()
+    public function store(Request $request)
     {
-        $faqs = new Faq();
-
-        $faqs->question = request('question');
-        $faqs->answer = request('answer');
-
-        $faqs->save();
+        Faq::create($this->validatePost($request));
 
         return redirect('/faq');
     }
@@ -50,7 +46,7 @@ class FaqController
      */
     public function edit($id)
     {
-        $faqs = Faq::find($id);
+        $faqs = Faq::findorfail($id);
 
         return view('faq.edit', compact('faqs'));
     }
@@ -59,14 +55,11 @@ class FaqController
      * @param $id
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
-    public function update($id)
+    public function update($id, Request $request)
     {
-        $faqs = Faq::find($id);
 
-        $faqs->question = request('question');
-        $faqs->answer = request('answer');
-
-        $faqs->save();
+        $faqs = Faq::findorfail($id);
+        $faqs->update($this->validatePost($request));
 
         return redirect('/faq');
     }
@@ -77,8 +70,19 @@ class FaqController
      */
     public function destroy($id)
     {
-        $faqs = Faq::find($id);
+        $faqs = Faq::findorfail($id);
         $faqs->delete();
         return redirect('/faq');
+    }
+
+    /**
+     * @return array
+     */
+    protected function validatePost(Request $request): array
+    {
+        return $request->validate([
+            'question' => 'required',
+            'answer' => 'required'
+        ]);
     }
 }

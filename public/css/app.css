@@ -130,7 +130,6 @@ nav ul li ul li a:hover {
 }
 .footer {
     grid-column: 1 / span 3;
-    background-color: #73485C;
 }
 /* FAQ and Blog specific */
 .all-browsers {
